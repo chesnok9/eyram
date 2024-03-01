@@ -12,6 +12,11 @@ import NewCustomers from './NewCustomers';
 import OrderChart from './OrderChart';
 
 import { Order } from '../types';
+import { MarketNews } from './components/MarketNews';
+import EquityMarkets from './components/EquityMarkets';
+import EquitySectors from './components/EquitySectors';
+import GlobalMarkets from './components/GlobalMarkets';
+import DashboardChart from './DashboardChart';
 
 interface OrderStats {
     revenue: number;
@@ -30,12 +35,13 @@ const styles = {
     flex: { display: 'flex' },
     flexColumn: { display: 'flex', flexDirection: 'column' },
     leftCol: { flex: 1, marginRight: '0.5em' },
+    middleCol: { flex: 2 },
     rightCol: { flex: 1, marginLeft: '0.5em' },
     singleCol: { marginTop: '1em', marginBottom: '1em' },
 };
 
-const Spacer = () => <span style={{ width: '1em' }} />;
-const VerticalSpacer = () => <span style={{ height: '1em' }} />;
+const Spacer = () => <span style={{ width: '2em' }} />;
+const VerticalSpacer = () => <span style={{ height: '2em' }} />;
 
 const Dashboard = () => {
     const isXSmall = useMediaQuery((theme: Theme) =>
@@ -55,7 +61,7 @@ const Dashboard = () => {
     const aggregation = useMemo<State>(() => {
         if (!orders) return {};
         const aggregations = orders
-            .filter(order => order.status !== 'cancelled')
+            .filter((order) => order.status !== 'cancelled')
             .reduce(
                 (stats: OrderStats, order) => {
                     if (order.status !== 'cancelled') {
@@ -117,26 +123,39 @@ const Dashboard = () => {
         </div>
     ) : (
         <>
-            <Welcome />
+            {/* <Welcome /> */}
+            <VerticalSpacer />
             <div style={styles.flex}>
                 <div style={styles.leftCol}>
-                    <div style={styles.flex}>
+                    <div>
+                        <EquityMarkets />
+                    </div>
+                    <Spacer />
+                    <div style={styles.singleCol}>
+                        <EquitySectors />
+                    </div>
+                    {/* <PendingReviews /> */}
+                </div>
+                <div style={styles.middleCol}>
+                    {/* <div style={styles.flex}>
                         <MonthlyRevenue value={revenue} />
                         <Spacer />
                         <NbNewOrders value={nbNewOrders} />
+                    </div> */}
+                    <div>
+                        <MarketNews />
                     </div>
                     <div style={styles.singleCol}>
-                        <OrderChart orders={recentOrders} />
+                        <DashboardChart orders={recentOrders} />
                     </div>
                     <div style={styles.singleCol}>
-                        <PendingOrders orders={pendingOrders} />
+                        {/* <PendingOrders orders={pendingOrders} /> */}
                     </div>
                 </div>
                 <div style={styles.rightCol}>
                     <div style={styles.flex}>
-                        <PendingReviews />
-                        <Spacer />
-                        <NewCustomers />
+                        {/* <NewCustomers /> */}
+                        <GlobalMarkets />
                     </div>
                 </div>
             </div>

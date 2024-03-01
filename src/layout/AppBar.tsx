@@ -11,8 +11,7 @@ const CustomAppBar = () => {
     );
     return (
         <AppBar color="secondary" toolbar={<AppBarToolbar />}>
-            <TitlePortal />
-            {isLargeEnough && <Logo />}
+            <TitlePortal >Logo</TitlePortal>
             {isLargeEnough && <Box component="span" sx={{ flex: 1 }} />}
         </AppBar>
     );

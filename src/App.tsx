@@ -52,7 +52,7 @@ const App = () => {
                 process.env.REACT_APP_DATA_PROVIDER || ''
             )}
             store={store}
-            authProvider={authProvider}
+            // authProvider={authProvider}
             dashboard={Dashboard}
             loginPage={Login}
             layout={Layout}
