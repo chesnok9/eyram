@@ -22,6 +22,7 @@ import reviews from './reviews';
 import Segments from './segments/Segments';
 import visitors from './visitors';
 import { themes, ThemeName } from './themes/themes';
+import { mainDarkTheme, mainLightTheme } from './themes/mainTheme';
 
 const i18nProvider = polyglotI18nProvider(
     locale => {
@@ -42,9 +43,6 @@ const i18nProvider = polyglotI18nProvider(
 const store = localStorageStore(undefined, 'ECommerce');
 
 const App = () => {
-    const [themeName] = useStore<ThemeName>('themeName', 'soft');
-    const lightTheme = themes.find(theme => theme.name === themeName)?.light;
-    const darkTheme = themes.find(theme => theme.name === themeName)?.dark;
     return (
         <Admin
             title=""
@@ -58,9 +56,9 @@ const App = () => {
             layout={Layout}
             i18nProvider={i18nProvider}
             disableTelemetry
-            lightTheme={lightTheme}
-            darkTheme={darkTheme}
-            defaultTheme="dark"
+            lightTheme={mainLightTheme}
+            darkTheme={mainDarkTheme}
+            defaultTheme="light"
         >
             <CustomRoutes>
                 <Route path="/segments" element={<Segments />} />
