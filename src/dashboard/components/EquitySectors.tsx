@@ -59,6 +59,7 @@ const EquitySectors = () => {
                 <FormControlLabel
                     control={<Checkbox size='small' />}
                     label="Sectors"
+                    sx={{'& .MuiFormControlLabel-label': {fontSize: '12px'}}}
                 />
             </FormGroup>
             {rows.map((row) => (
