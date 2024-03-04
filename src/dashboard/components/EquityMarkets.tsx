@@ -69,7 +69,7 @@ const rows = [
 
 const EquityMarkets = () => {
     return (
-        <DashboardWidget title="U.S. Equity Markets" height="141">
+        <DashboardWidget title="African Equity Markets" height="141">
             <CheckboxTable
                 rows={rows}
                 columns={columns}

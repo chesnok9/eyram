@@ -15,8 +15,8 @@ import {
 import { useTranslate } from 'react-admin';
 import { format, subDays, addDays } from 'date-fns';
 
-import { Order } from '../types';
-import DashboardWidget from './components/DashboardWidget';
+import { Order } from '../../types';
+import DashboardWidget from './DashboardWidget';
 
 const lastDay = new Date();
 const lastMonthDays = Array.from({ length: 30 }, (_, i) => subDays(lastDay, i));

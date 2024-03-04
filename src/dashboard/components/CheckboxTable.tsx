@@ -21,9 +21,29 @@ const CheckboxTable = ( props: any ) => {
             hideFooter
             disableColumnMenu
             sx={{
-                '.MuiDataGrid-cell, .MuiDataGrid-columnHeaderTitle': {
+                '& .MuiDataGrid-cell, & .MuiDataGrid-columnHeaderTitle': {
                     fontSize: '12px',
+                    // padding: 0
+                    // paddingLeft: 0
                 },
+                '& .MuiCheckbox-root': {
+                    transform: "scale(0.8)",
+                    padding: 0
+                },
+                '& .MuiDataGrid-cellCheckbox': {
+                    // minWidth: '30px !important',
+                    // maxWidth: '30px !important' 
+                },
+                '& .MuiDataGrid-columnHeaderCheckbox': {
+                    // minWidth: '30px !important',
+                    // maxWidth: '30px !important' 
+                },
+                '& .MuiDataGrid-columnHeader': {
+                    // minWidth: '30px !important',
+                    // width: '30px !important'
+                    // paddingLeft: 0
+                },
+
             }}
         />
     );

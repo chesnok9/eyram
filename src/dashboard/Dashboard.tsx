@@ -8,7 +8,8 @@ import { MarketNews } from './components/MarketNews';
 import EquityMarkets from './components/EquityMarkets';
 import EquitySectors from './components/EquitySectors';
 import GlobalMarkets from './components/GlobalMarkets';
-import DashboardChart from './DashboardChart';
+import DashboardChart from './components/DashboardChart';
+import ChartWidget from './components/ChartWidget';
 
 interface OrderStats {
     revenue: number;
@@ -121,7 +122,8 @@ const Dashboard = () => {
                         <MarketNews />
                     </div>
                     <div style={styles.singleCol}>
-                        <DashboardChart orders={recentOrders} />
+                        {/* <DashboardChart orders={recentOrders} /> */}
+                        <ChartWidget />
                     </div>
                 </div>
                 <div style={styles.rightCol}>

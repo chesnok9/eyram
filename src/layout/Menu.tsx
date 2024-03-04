@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import LabelIcon from '@mui/icons-material/Label';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import HomeIcon from '@mui/icons-material/Home';
 
 import {
     useTranslate,
@@ -46,10 +47,8 @@ const Menu = ({ dense = false }: MenuProps) => {
             <MenuItemLink
                 to={`${basename}/`}
                 state={{ _scrollToTop: true }}
-                primaryText={translate(`pos.dashboard.todays_markets`, {
-                    smart_count: 2,
-                })}
-                leftIcon={<DashboardIcon/>}
+                primaryText="Home"
+                leftIcon={<HomeIcon/>}
                 dense={dense}
             />
         </Box>
