@@ -5,11 +5,9 @@ import {
     localStorageStore,
     StoreContextProvider,
 } from 'react-admin';
-import { Route } from 'react-router';
 
 import authProvider from './authProvider';
 import { Dashboard } from './dashboard';
-import dataProviderFactory from './dataProvider';
 import englishMessages from './i18n/en';
 import { Layout, Login } from './layout';
 import { mainDarkTheme, mainLightTheme } from './themes/mainTheme';
@@ -36,9 +34,6 @@ const App = () => {
     return (
         <Admin
             title=""
-            dataProvider={dataProviderFactory(
-                process.env.REACT_APP_DATA_PROVIDER || ''
-            )}
             store={store}
             // authProvider={authProvider}
             dashboard={Dashboard}
