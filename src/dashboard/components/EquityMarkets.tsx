@@ -6,7 +6,7 @@ import CheckboxTable from './CheckboxTable';
 const columns = [
     {
         field: 'title',
-        headerName: 'Major Indices & ETFs',
+        headerName: 'Markets',
         width: 140,
     },
     { field: 'ticker', headerName: 'Ticker', width: 60, sortable: false },
@@ -15,7 +15,6 @@ const columns = [
         headerName: 'Price',
         align: 'right',
         width: 75,
-        
     },
     {
         field: 'chg',
@@ -35,7 +34,7 @@ const columns = [
 const rows = [
     {
         id: 1,
-        title: 'Nasdaq 100',
+        title: 'Nigeria',
         ticker: 'NDX',
         price: '18,043.85',
         chg: '+169.35',
@@ -43,7 +42,7 @@ const rows = [
     },
     {
         id: 2,
-        title: 'Russell 2000',
+        title: 'Ghana',
         ticker: 'IWM',
         price: '203.73',
         chg: '+1.41',
@@ -51,29 +50,18 @@ const rows = [
     },
     {
         id: 3,
-        title: 'S&P 500',
+        title: 'Kenya',
         ticker: 'SPX',
         price: '5,096.77',
         chg: '+26.51',
         percentage: '0.5%',
-    },
-    {
-        id: 4,
-        title: 'Dow Jones',
-        ticker: 'INDU',
-        price: '38,996.39',
-        chg: '+47.37',
-        percentage: '0.1%',
     },
 ];
 
 const EquityMarkets = () => {
     return (
         <DashboardWidget title="African Equity Markets" height="141">
-            <CheckboxTable
-                rows={rows}
-                columns={columns}
-            />
+            <CheckboxTable rows={rows} columns={columns} />
         </DashboardWidget>
     );
 };
