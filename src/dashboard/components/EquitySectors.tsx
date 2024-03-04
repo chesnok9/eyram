@@ -62,7 +62,7 @@ const EquitySectors = () => {
                 />
             </FormGroup>
             {rows.map((row) => (
-                <CollapsedList handleToggle={() => {}} name={row.title} dense>
+                <CollapsedList key={row.id} handleToggle={() => {}} name={row.title} dense>
                     <MenuItemLink
                         to="#"
                         state={{ _scrollToTop: true }}

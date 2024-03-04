@@ -23,7 +23,7 @@ interface Props {
 }
 
 const CollapsedList = (props: Props) => {
-    const { handleToggle, isOpen, name, children, dense } = props;
+    const { isOpen, name, children, dense } = props;
     const translate = useTranslate();
     const [open, setOpen] = React.useState(isOpen);
 
@@ -42,7 +42,7 @@ const CollapsedList = (props: Props) => {
                 {open ? <ExpandMore /> : <KeyboardArrowRightIcon />}
             </ListItemIcon>
             <Typography variant="inherit" color="textSecondary">
-                {translate(name)}
+                {name}
             </Typography>
         </MenuItem>
     );

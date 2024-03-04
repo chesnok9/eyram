@@ -36,6 +36,7 @@ const GlobalMarkets = () => {
         <DashboardWidget title="Relevant Links" height="141">
             {rows.map((row) => (
                 <CollapsedList
+                    key={row.id}
                     handleToggle={() => {}}
                     name={row.title}
                     dense
@@ -43,7 +44,7 @@ const GlobalMarkets = () => {
                     <MenuItemLink
                         to="#"
                         state={{ _scrollToTop: true }}
-                        primaryText='Link'
+                        primaryText="Link"
                         dense
                     />
                 </CollapsedList>

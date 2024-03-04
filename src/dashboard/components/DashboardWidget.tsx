@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, CardHeader, CardContent, Typography } from '@mui/material';
+import { Card, CardHeader, CardContent, Typography, Box } from '@mui/material';
 import { useTranslate } from 'react-admin';
 
 const styles = {
@@ -15,7 +15,7 @@ const DashboardWidget = (props: {
     const translate = useTranslate();
 
     return (
-        <div>
+        <Box sx={{width: '100%'}}>
             {title && <Typography variant="h6" component="h3" gutterBottom>{title}</Typography>}
             <Card>
                 <CardContent style={styles.body}>
@@ -24,7 +24,7 @@ const DashboardWidget = (props: {
                     </div>
                 </CardContent>
             </Card>
-        </div>
+        </Box>
     );
 };
 
