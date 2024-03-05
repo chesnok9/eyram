@@ -3,7 +3,6 @@ import * as React from 'react';
 import DashboardWidget from './DashboardWidget';
 import CollapsedList from '../../layout/CollapsedList';
 import { MenuItemLink } from 'react-admin';
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 
 const rows = [
     {
@@ -55,13 +54,6 @@ const rows = [
 const EquitySectors = () => {
     return (
         <DashboardWidget title="African Equity Sectors" height="141">
-            <FormGroup sx={{paddingLeft: 1.5}}>
-                <FormControlLabel
-                    control={<Checkbox size='small' />}
-                    label="Sectors"
-                    sx={{'& .MuiFormControlLabel-label': {fontSize: '12px'}}}
-                />
-            </FormGroup>
             {rows.map((row) => (
                 <CollapsedList key={row.id} handleToggle={() => {}} name={row.title} dense>
                     <MenuItemLink

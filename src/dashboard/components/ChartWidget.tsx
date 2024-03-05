@@ -4,12 +4,25 @@ import { format, subDays, addDays } from 'date-fns';
 import { Order } from '../../types';
 import DashboardWidget from './DashboardWidget';
 import ReactApexChart from 'react-apexcharts';
-import { Button } from '@mui/material';
-import { time } from 'console';
+import { Button, Stack, styled } from '@mui/material';
+import { red, green } from '@mui/material/colors';
 
-const lastDay = new Date();
-const lastMonthDays = Array.from({ length: 30 }, (_, i) => subDays(lastDay, i));
-const aMonthAgo = subDays(new Date(), 30);
+const SellButton = styled(Button)(({ theme }) => ({
+    height: '34px',
+    color: theme.palette.getContrastText(red[500]),
+    backgroundColor: red[500],
+    '&:hover': {
+        backgroundColor: red[700],
+    },
+}));
+const BuyButton = styled(Button)(({ theme }) => ({
+    height: '34px',
+    color: theme.palette.getContrastText(red[500]),
+    backgroundColor: green[500],
+    '&:hover': {
+        backgroundColor: green[700],
+    },
+}));
 
 const series = [
     {
@@ -93,13 +106,11 @@ const options = {
     chart: {
         id: 'dashboard-chart',
         height: 350,
-        type: 'line',
+        type: 'line' as const,
         toolbar: {
-            show: false
+            show: false,
         },
         zoom: {
-            // type: 'x',
-            // enabled: true,
             autoScaleYaxis: true,
         },
     },
@@ -113,30 +124,12 @@ const options = {
     dataLabels: {
         enabled: false,
     },
-    // annotations: {
-    //     yaxis: [{
-    //       y: 30,
-    //       borderColor: '#999',
-    //       label: {
-    //         show: true,
-    //         text: 'Support',
-    //         style: {
-    //           color: "#fff",
-    //           background: '#00E396'
-    //         }
-    //       }
-    //     }],
-    // },
     stroke: {
-        curve: 'straight',
+        curve: 'straight' as const,
         width: 1,
     },
-    // title: {
-    //     text: '.',
-    //     align: 'left',
-    // },
     grid: {
-        position: 'front',
+        position: 'front' as const,
         xaxis: {
             lines: {
                 show: true,
@@ -152,7 +145,7 @@ const options = {
         },
     },
     xaxis: {
-        type: 'datetime',
+        type: 'datetime' as const,
         min: new Date('01 Jan 2023').getTime(),
         tickAmount: 6,
     },
@@ -162,15 +155,15 @@ const options = {
                 return val.toFixed(2) + '%';
             },
         },
-        position: 'right',
+        position: 'right' as const,
         opposite: true,
         min: -20,
         max: 100,
     },
     selection: '1Y',
     legend: {
-        position: 'top',
-        horizontalAlign: 'right',
+        position: 'top' as const,
+        horizontalAlign: 'right' as const,
         floating: true,
         offsetY: -25,
         offsetX: -5,
@@ -235,20 +228,29 @@ const ChartWidget = (props: { orders?: Order[] }) => {
     const updateData = (timeline: string) => {
         setSelection(timeline);
 
-        const period = periods.find(p => p.name === timeline);
+        const period = periods.find((p) => p.name === timeline);
 
         if (period) {
             ApexCharts.exec(
                 'dashboard-chart',
                 'zoomX',
                 new Date(period.start).getTime(),
-                new Date(period.end).getTime(),
+                new Date(period.end).getTime()
             );
         }
     };
 
     return (
-        <DashboardWidget title="Normalized Performance" height="400">
+        <DashboardWidget
+            title="Normalized Performance"
+            height="400"
+            actions={
+                <Stack direction="row" spacing={1}>
+                    <BuyButton variant="contained">Buy</BuyButton>
+                    <SellButton variant="contained">Sell</SellButton>
+                </Stack>
+            }
+        >
             <div style={{ width: '100%', height: 420, padding: '10px' }}>
                 <div className="toolbar">
                     {periods.map((period) => (

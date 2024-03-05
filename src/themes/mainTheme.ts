@@ -84,7 +84,7 @@ export const mainLightTheme = {
             styleOverrides: {
                 colorSecondary: {
                     color: '#fff',
-                    backgroundColor: '#000080',
+                    backgroundColor: '#000000',
                     border: 'none'
                 },
             },

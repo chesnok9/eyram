@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, CardHeader, CardContent, Typography, Box } from '@mui/material';
+import { Card, CardHeader, CardContent, Typography, Box, Stack } from '@mui/material';
 import { useTranslate } from 'react-admin';
 
 const styles = {
@@ -10,15 +10,19 @@ const DashboardWidget = (props: {
     children?: any;
     title?: string;
     height?: string;
+    actions? : any;
 }) => {
-    const { children, height, title } = props;
+    const { children, height, title, actions } = props;
     const translate = useTranslate();
 
     return (
         <Box sx={{width: '100%'}}>
-            {title && <Typography variant="h6" component="h3" gutterBottom>{title}</Typography>}
+            <Stack direction="row" justifyContent="space-between">
+                {title && <Typography variant="h6" component="h3" gutterBottom>{title}</Typography>}
+                {actions}
+            </Stack>
             <Card>
-                <CardContent style={styles.body}>
+                <CardContent sx={styles.body}>
                     <div style={{ width: '100%', height: height ?? 'auto' }}>
                         {children}
                     </div>

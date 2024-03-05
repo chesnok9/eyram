@@ -101,14 +101,11 @@ const Dashboard = () => {
                 <EquitySectors />
             </div>
             <div style={styles.singleCol}>
-                <DashboardChart orders={recentOrders} />
-            </div>
-            <div style={styles.singleCol}>
                 <GlobalMarkets />
             </div>
         </div>
     ) : (
-        <Paper style={{background: '#fff', border: 'none', padding: 8}} elevation={0}>
+        <Paper style={{background: '#f3f4f7', border: 'none', padding: 8}} elevation={0}>
             <div style={styles.flex}>
                 <div style={styles.leftCol}>
                     <EquityMarkets />
@@ -121,7 +118,6 @@ const Dashboard = () => {
                         <MarketNews />
                     </div>
                     <div style={styles.singleCol}>
-                        {/* <DashboardChart orders={recentOrders} /> */}
                         <ChartWidget />
                     </div>
                 </div>

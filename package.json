@@ -50,7 +50,7 @@
         "@types/jest": "^29.5.2",
         "@types/node": "^12.12.14",
         "@types/prop-types": "^15.6.0",
-        "@types/react": "^17.0.20",
+        "@types/react": "^18.2.63",
         "@types/react-dom": "^17.0.9",
         "@vitejs/plugin-react": "^2.2.0",
         "rewire": "^5.0.0",

@@ -8,7 +8,7 @@ const styles = {
 const CheckboxTable = ( props: any ) => {
     const {rows, columns} = props;
 
-    const columsSorting = columns.map(col => ({...col, sortable: col.sortable ?? false}));
+    const columsSorting = columns.map((col: any) => ({...col, sortable: col.sortable ?? false}));
     
     return (
         <DataGrid
