@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import visualizer from 'rollup-plugin-visualizer';
 
-
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
@@ -24,7 +23,15 @@ export default defineConfig({
         keepNames: true,
     },
     build: {
-        sourcemap: true,
+        chunkSizeWarningLimit: 100,
+        rollupOptions: {
+            onwarn(warning, warn) {
+                if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+                    return;
+                }
+                warn(warning);
+            },
+        },
     },
     resolve: {
         preserveSymlinks: true,
