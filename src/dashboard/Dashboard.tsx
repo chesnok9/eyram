@@ -85,27 +85,11 @@ const Dashboard = () => {
     }, [orders]);
 
     const { nbNewOrders, pendingOrders, revenue, recentOrders } = aggregation;
-    return isXSmall ? (
-        <div>
-            <div style={styles.flexColumn as CSSProperties}>
-                <EquityMarkets />
-                <VerticalSpacer />
-                <EquitySectors />
-            </div>
-        </div>
-    ) : isSmall ? (
-        <div style={styles.flexColumn as CSSProperties}>
-            <div style={styles.flex}>
-                <EquityMarkets />
-                <Spacer />
-                <EquitySectors />
-            </div>
-            <div style={styles.singleCol}>
-                <GlobalMarkets />
-            </div>
-        </div>
-    ) : (
-        <Paper style={{background: '#f3f4f7', border: 'none', padding: 8}} elevation={0}>
+    return (
+        <Paper
+            style={{ background: '#f3f4f7', border: 'none', padding: 8 }}
+            elevation={0}
+        >
             <div style={styles.flex}>
                 <div style={styles.leftCol}>
                     <EquityMarkets />

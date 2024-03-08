@@ -9,6 +9,9 @@ const CustomLayout = styled(Layout)({
         color: '#fff',
         background: '#000000',
     },
+    '& .RaLayout-appFrame': {
+        marginTop: '48px',
+    },
 });
 
 const sidebar = styled(Sidebar)({
